@@ -29,5 +29,17 @@ go.work.sum
 .env
 
 # Editor/IDE
-# .idea/
-# .vscode/
+.idea/
+.vscode/
+
+# Harness
+.claude/
+.kiro/
+
+# APM dependencies
+apm_modules/
+apm.lock.yaml
+apm.yml
+
+# Requirements files
+# REQUIREMENTS.md
