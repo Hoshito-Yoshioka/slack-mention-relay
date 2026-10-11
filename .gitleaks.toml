@@ -1,0 +1,31 @@
+# gitleaks configuration: the default rule set plus project-specific rules.
+title = "slack-mention-relay"
+
+[extend]
+useDefault = true
+
+# A 32-character alphanumeric value next to an AES/key-like name is most
+# likely a real Bark encryption key.
+[[rules]]
+id = "bark-aes-key"
+description = "Bark AES-256 key (32 ASCII alphanumerics)"
+regex = '''(?i)(aes|enc(ryption)?)[_-]?key["'\s:=]+([A-Za-z0-9]{32})\b'''
+secretGroup = 3
+keywords = ["aes", "encryption", "enc_key", "enc-key"]
+
+# Bark push URLs embed the device key in the path.
+[[rules]]
+id = "bark-device-url"
+description = "Bark push URL with a device key"
+regex = '''https?://[^\s/]+/([A-Za-z0-9]{20,})(/|\b)'''
+secretGroup = 1
+keywords = ["api.day.app", ":18787/", ":8080/"]
+
+[allowlist]
+description = "Synthetic values used in tests and docs"
+regexTarget = "match"
+regexes = [
+  '''0123456789abcdefghijklmnopqrstuv''',
+  '''vutsrqponmlkjihgfedcba9876543210''',
+  '''SyntheticDeviceKey01''',
+]

@@ -43,3 +43,35 @@ apm.yml
 
 # Requirements files
 # REQUIREMENTS.md
+
+# --- slack-mention-relay (REQUIREMENTS 8.1 P2) ---
+# Build output and downloaded binaries
+bin/
+bark-server
+bark-server_*
+/slack-mention-relay
+
+# Databases, plists and dumps (synthetic files under testdata/ are allowed)
+*.db
+*.db-shm
+*.db-wal
+*.sqlite*
+*.plist
+!testdata/**
+db
+db-shm
+db-wal
+
+# Secrets and local configuration
+.env*
+config.json
+!configs/config.example.json
+*.p8
+*.pem
+*.key
+
+# Logs and runtime data (~/.slack-relay equivalents)
+*.log
+*.pid
+.slack-relay/
+bark-data/

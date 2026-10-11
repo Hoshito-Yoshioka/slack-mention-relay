@@ -1,0 +1,9 @@
+{
+  "port": 18787,
+  "poll_interval_seconds": 4,
+  "notification_db_path": "",
+  "bark_server_path": "",
+  "slack_bundle_ids": ["com.tinyspeck.slackmacgap"],
+  "register_timeout_seconds": 300,
+  "debug": false
+}
